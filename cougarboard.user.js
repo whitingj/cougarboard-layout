@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         cougarboard message board first
+// @name         cougarboard message board more prominent
 // @namespace    http://tampermonkey.net/
 // @version      2026-06-22
 // @description  This redoes the layout and puts the message board first and expands all the more posts.
@@ -12,7 +12,7 @@
 (function() {
     'use strict';
     const css = `
-    @media (max-width: 3000px) {
+    @media (max-width: 3000px) and (min-width: 640px) {
         div#home-grid {
             display:flex;
             flex-direction: column;
@@ -24,11 +24,12 @@
         }
 
         section#home-news>cb-article.featured {
-            order: 2
+            order: 1;
+            width: 50%;
         }
 
         div#home-board {
-            order: 1
+            order: 2
         }
 
         div#home-ad-board {
@@ -56,7 +57,8 @@
         }
 
         div#home-featured {
-            order: 9
+            order: 9;
+            width: 50%;
         }
 
         section#home-promos {
